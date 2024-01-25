@@ -16,46 +16,54 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:background="@color/headline"
-        android:textColor="@color/name"
+        android:textColor="@color/app_name"
         android:padding="16dp"
         android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/Restauracje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/button"
-            android:text="@string/restauracje"
-            android:textColor="@color/text"
-            android:layout_margin="20dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Restauracje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/button"
+                android:text="@string/restauracje"
+                android:textColor="@color/text" />
 
 
+            <Button
+                android:id="@+id/Zamow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/button"
+                android:text="@string/zamow"
+                android:textColor="@color/text" />
+
+        </LinearLayout>
+
         <Button
-            android:id="@+id/Zamow"
+            android:id="@+id/Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
             android:background="@color/button"
-            android:text="@string/zamow"
-            android:textColor="@color/text"
-            android:layout_margin="20dp"/>
+            android:text="@string/menu"
+            android:textColor="@color/text" />
 
     </LinearLayout>
-    <Button
-        android:id="@+id/Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/button"
-        android:text="@string/menu"
-        android:textColor="@color/text"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"/>
-
 
 
 </LinearLayout>

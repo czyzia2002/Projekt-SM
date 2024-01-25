@@ -1,6 +1,7 @@
 package pl.edu.pb.restauracja;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -9,12 +10,18 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import pl.edu.pb.restauracja.database.AppDatabase;
+
 public class MainActivity extends AppCompatActivity {
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "restaurant-database").build();
 
         int orientation = getResources().getConfiguration().orientation;
 
@@ -43,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         displayMenu(logoImageView,firstButton,secondButton, thirdButton,buttonAnimation);*/
 
         firstButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, RestauracjeActivity.class);
+            Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
             startActivity(intent);
         });
 

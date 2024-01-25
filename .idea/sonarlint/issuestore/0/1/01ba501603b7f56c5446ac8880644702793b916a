@@ -1,6 +1,10 @@
 
+s
+java:S1450"QRemove the "db" field and declare it as a local variable in the relevant methods.(½µ×ùÿÿÿÿ8©ã¥Ô1
 [
-java:S1854"?Remove this useless assignment to local variable "orientation".(ıøÇ\8ÊªƒÔ1
+java:S1854"?Remove this useless assignment to local variable "orientation".(ıøÇ\8ıç±Ô1
 L
-java:S1481"0Remove this unused "orientation" local variable.(ıøÇ\8’ÊªƒÔ1
-X	java:S125"<This block of commented-out lines of code should be removed.(Éó‹î8˜ÊªƒÔ1
+java:S1481"0Remove this unused "orientation" local variable.(ıøÇ\8è±Ô1
+X	java:S125!"<This block of commented-out lines of code should be removed.(Éó‹î8…è±Ô1
+H
+java:S1068"&Remove this unused "db" private field.(½µ×ùÿÿÿÿ8µÅ¤Ô1
