@@ -1,9 +1,5 @@
 package pl.edu.pb.restauracja.database;
 
-import android.content.Context;
-
-import androidx.room.Room;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +8,7 @@ public class MenuRepository {
     private static MenuRepository instance;
     private List<MenuItem> menuItems;
 
-    private MenuRepository(Context context) {
+    private MenuRepository() {
         menuItems = new ArrayList<>();
         menuItems.add(new MenuItem(1, "Rosol", "zupa", 9.99));
         menuItems.add(new MenuItem(2, "Bigos", "danie główne", 18.50));
@@ -46,14 +42,14 @@ public class MenuRepository {
         menuItems.add(new MenuItem(30, "Jabłecznik", "deser", 13.25));
     }
 
-    public static synchronized MenuRepository getInstance(Context context) {
+    public static synchronized MenuRepository getInstance() {
         if (instance == null) {
-            instance = new MenuRepository(context);
+            instance = new MenuRepository();
         }
         return instance;
     }
 
-    public List<MenuItem> getRestaurants() {
+    public List<MenuItem> getMenuItems() {
         return menuItems;
     }
 }
