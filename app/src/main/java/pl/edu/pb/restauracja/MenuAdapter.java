@@ -31,6 +31,14 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MenuItem menuItem = menuItems.get(position);
 
+        // Display category header if it's the first item in the category
+        if (position == 0 || !menuItem.getCategory().equals(menuItems.get(position - 1).getCategory())) {
+            holder.categoryTextView.setVisibility(View.VISIBLE);
+            holder.categoryTextView.setText(menuItem.getCategory());
+        } else {
+            holder.categoryTextView.setVisibility(View.GONE);
+        }
+
         holder.itemNameTextView.setText(menuItem.getItemName());
         holder.priceTextView.setText(String.valueOf(menuItem.getPrice()));
     }
@@ -44,10 +52,12 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
 
         TextView itemNameTextView;
         TextView priceTextView;
+        TextView categoryTextView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemNameTextView = itemView.findViewById(R.id.textViewItemName);
             priceTextView = itemView.findViewById(R.id.textViewPrice);
+            categoryTextView = itemView.findViewById(R.id.textViewCategory);
         }
     }
 }

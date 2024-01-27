@@ -22,12 +22,10 @@ public class MenuRepository {
         menuItems.add(new MenuItem(10, "Pierogi z mięsem", "danie główne", 17.25));
         menuItems.add(new MenuItem(11, "Kapuśniak", "zupa", 10.99));
         menuItems.add(new MenuItem(12, "Gołąbki", "danie główne", 19.99));
-        menuItems.add(new MenuItem(13, "Kompot owocowy", "napój", 5.99));
         menuItems.add(new MenuItem(14, "Kaszanka", "danie główne", 14.50));
         menuItems.add(new MenuItem(15, "Kopytka", "danie główne", 13.25));
         menuItems.add(new MenuItem(16, "Ziemniaki puree", "danie główne", 11.99));
         menuItems.add(new MenuItem(17, "Kapusta z grochem", "danie główne", 16.25));
-        menuItems.add(new MenuItem(18, "Mizeria", "sałatka", 8.75));
         menuItems.add(new MenuItem(19, "Kisiel", "deser", 6.99));
         menuItems.add(new MenuItem(20, "Pieczeń rzymska", "danie główne", 24.50));
         menuItems.add(new MenuItem(21, "Racuchy", "deser", 9.99));

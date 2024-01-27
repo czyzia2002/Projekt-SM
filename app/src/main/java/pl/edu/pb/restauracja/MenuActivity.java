@@ -40,6 +40,13 @@ public class MenuActivity extends AppCompatActivity {
 
         List<MenuItem> menuItems = MenuRepository.getInstance().getMenuItems();
 
+        Collections.sort(menuItems, new Comparator<MenuItem>() {
+            @Override
+            public int compare(MenuItem item1, MenuItem item2) {
+                return item1.getCategory().compareTo(item2.getCategory());
+            }
+        });
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
