@@ -6,6 +6,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
 
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,14 +23,22 @@ public class MenuItem {
     private String itemName;
     private String category;
     private double price;
+    private String ingredients;
     public MenuItem() {
     }
 
-    public MenuItem(int id, String itemName, String category, double price) {
+    public MenuItem(int id, String itemName, String category, double price, String[] ingredients) {
         this.id = id;
         this.itemName = itemName;
         this.category = category;
         this.price = price;
+        Gson gson = new Gson();
+        ArrayList<Ingredient> ingredient = new ArrayList<>();
+        for(int i=0;i<ingredients.length;i++) {
+            ingredient.add(new Ingredient(ingredients[i]));
+        }
+        this.ingredients = gson.toJson((ingredients));
+
     }
 
     public int getId() {
@@ -58,5 +71,22 @@ public class MenuItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getIngredients(){
+        return ingredients;
+    }
+
+    public String[] getIngredients2(){
+        Gson gson = new Gson();
+        return gson.fromJson(ingredients, String[].class);
+    }
+    public void setIngredients(String ingredients){
+        Gson gson = new Gson();
+        this.ingredients = gson.toJson(ingredients);
+    }
+    public void setIngredients2(Ingredient[] ingredients){
+        Gson gson = new Gson();
+        this.ingredients = gson.toJson(ingredients);
     }
 }
