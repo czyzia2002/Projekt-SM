@@ -1,14 +1,9 @@
 package pl.edu.pb.restauracja;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -20,10 +15,8 @@ import java.util.List;
 import pl.edu.pb.restauracja.database.AppDatabase;
 import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.MenuRepository;
-import pl.edu.pb.restauracja.database.Restaurant;
-import pl.edu.pb.restauracja.database.RestaurantRepository;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity{
     private AppDatabase appDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +47,12 @@ public class MenuActivity extends AppCompatActivity {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(MenuActivity.this);
                 recyclerView.setLayoutManager(layoutManager);
 
-                MenuAdapter adapter = new MenuAdapter(menuItems);
+                MenuAdapter adapter = new MenuAdapter(menuItems, MenuActivity.this);
 
                 adapter.notifyDataSetChanged();
                 recyclerView.setAdapter(adapter);
             }
         });
     }
+
 }

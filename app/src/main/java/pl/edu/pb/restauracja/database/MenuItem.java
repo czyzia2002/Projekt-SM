@@ -1,7 +1,13 @@
 package pl.edu.pb.restauracja.database;
 
+import android.text.TextUtils;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
+
+import java.util.Arrays;
+import java.util.List;
 
 import kotlinx.coroutines.channels.ActorKt;
 
@@ -12,11 +18,10 @@ public class MenuItem {
     private String itemName;
     private String category;
     private double price;
-
-    public MenuItem(){
+    public MenuItem() {
     }
 
-    public MenuItem(int id, String itemName, String category, double price){
+    public MenuItem(int id, String itemName, String category, double price) {
         this.id = id;
         this.itemName = itemName;
         this.category = category;
