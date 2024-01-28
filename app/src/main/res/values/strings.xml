@@ -5,4 +5,9 @@
     <string name="menu">Menu</string>
     <string name="nearest_restaurant">Najbliższa restauracja</string>
     <string name="distance">Odległość:</string>
+    <string name="ingredients">Składniki:</string>
+    <string name="choose_restaurant">Wybierz Restaurację</string>
+    <string name="pickup">Odbiór Własny</string>
+    <string name="delivery">Dowóz</string>
+
 </resources>
