@@ -1,6 +1,7 @@
 package pl.edu.pb.restauracja.database;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity

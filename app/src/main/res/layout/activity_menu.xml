@@ -11,4 +11,7 @@
         android:layout_margin="8dp"
         />
 
+    <include layout="@layout/header_layout"
+        android:id="@+id/headerLayout"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
