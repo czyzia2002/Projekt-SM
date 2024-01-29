@@ -7,7 +7,8 @@
     <string name="distance">Odległość:</string>
     <string name="ingredients">Składniki:</string>
     <string name="choose_restaurant">Wybierz Restaurację</string>
-    <string name="delivery">Zamów</string>
+    <string name="pickup">Odbiór Własny</string>
+    <string name="delivery">Dowóz</string>
     <string name="add">Dodaj</string>
     <string name="confirm">Złóż zamówienie</string>
     <string name="order">Twoje zamówienie</string>
@@ -16,4 +17,11 @@
     <string name="number">Numer domu</string>
     <string name="phone">Numer telefonu</string>
     <string name="doneorder">Złożono zamówienie</string>
+    <string name="search">Wyszukaj w Google</string>
+
+    <string name="settings">Ustawienia</string>
+    <string name="change_to_english">Angielski</string>
+    <string name="change_to_polish">Polski</string>
+    <string name="toggle_dark_mode">Tryb ciemny</string>
+
 </resources>
