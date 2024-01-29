@@ -14,12 +14,18 @@ import pl.edu.pb.restauracja.database.MenuItem;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
-    private List<MenuItem> selectedItems;
-
-    public OrderAdapter(List<MenuItem> selectedItems) {
+    private static List<MenuItem> selectedItems;
+    private static OnItemClickListener onItemClickListener;
+    private String orderType;
+    public OrderAdapter(List<MenuItem> selectedItems, OnItemClickListener onItemClickListener, String orderType) {
         this.selectedItems = selectedItems;
+        this.onItemClickListener = onItemClickListener;
+        this.orderType = orderType;
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(MenuItem selectedItem, String orderType);
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,12 +46,21 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView itemNameTextView;
+        TextView itemNameTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemNameTextView = itemView.findViewById(R.id.itemNameTextView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        MenuItem clickedItem = selectedItems.get(position);
+                        onItemClickListener.onItemClick(clickedItem, "pickup");
+                    }
+                }
+            });
         }
 
         public void bind(MenuItem selectedItem) {

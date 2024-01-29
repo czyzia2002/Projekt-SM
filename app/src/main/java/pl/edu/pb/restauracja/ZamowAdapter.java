@@ -17,10 +17,12 @@ import pl.edu.pb.restauracja.database.Restaurant;
 public class ZamowAdapter extends RecyclerView.Adapter<ZamowAdapter.ViewHolder> {
     private List<Restaurant> restaurants;
     private Context context;
+
     public ZamowAdapter(List<Restaurant> restaurants, Context context) {
         this.restaurants = restaurants;
         this.context = context;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,15 +35,6 @@ public class ZamowAdapter extends RecyclerView.Adapter<ZamowAdapter.ViewHolder> 
         Restaurant restaurant = restaurants.get(position);
         holder.nameTextView.setText(restaurant.getName());
         holder.addressTextView.setText(restaurant.getCity() + ", " + restaurant.getStreet() + " " + restaurant.getNumber());
-
-        holder.buttonPickup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Restaurant restaurant = restaurants.get(holder.getAdapterPosition());
-                Intent intent = new Intent(context, ZamowMenuActivity.class);
-                context.startActivity(intent);
-            }
-        });
 
         holder.buttonDelivery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,14 +54,12 @@ public class ZamowAdapter extends RecyclerView.Adapter<ZamowAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView addressTextView;
-        Button buttonPickup;
         Button buttonDelivery;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.textViewName);
             addressTextView = itemView.findViewById(R.id.textViewAddress);
-            buttonPickup = itemView.findViewById(R.id.buttonPickup);
             buttonDelivery = itemView.findViewById(R.id.buttonDelivery);
         }
     }
