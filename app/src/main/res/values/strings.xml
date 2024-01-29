@@ -9,5 +9,8 @@
     <string name="choose_restaurant">Wybierz Restaurację</string>
     <string name="pickup">Odbiór Własny</string>
     <string name="delivery">Dowóz</string>
+    <string name="add">Dodaj</string>
+    <string name="confirm">Złóż zamówienie</string>
+    <string name="order">Twoje zamówienie</string>
 
 </resources>

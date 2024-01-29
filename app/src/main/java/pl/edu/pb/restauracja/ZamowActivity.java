@@ -23,7 +23,7 @@ public class ZamowActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        ZamowAdapter adapter = new ZamowAdapter(restaurants);
+        ZamowAdapter adapter = new ZamowAdapter(restaurants, this);
         recyclerView.setAdapter(adapter);
     }
 }

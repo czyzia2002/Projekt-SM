@@ -1,5 +1,7 @@
 package pl.edu.pb.restauracja;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +10,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+
+import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.Restaurant;
 
 public class ZamowAdapter extends RecyclerView.Adapter<ZamowAdapter.ViewHolder> {
-
     private List<Restaurant> restaurants;
-
-    public ZamowAdapter(List<Restaurant> restaurants) {
+    private Context context;
+    public ZamowAdapter(List<Restaurant> restaurants, Context context) {
         this.restaurants = restaurants;
+        this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,14 +37,18 @@ public class ZamowAdapter extends RecyclerView.Adapter<ZamowAdapter.ViewHolder> 
         holder.buttonPickup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            // Obsługa kliknięcia "Odbiór własny"
+                Restaurant restaurant = restaurants.get(holder.getAdapterPosition());
+                Intent intent = new Intent(context, ZamowMenuActivity.class);
+                context.startActivity(intent);
             }
         });
 
         holder.buttonDelivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obsługa kliknięcia "Dowóz"
+                Restaurant restaurant = restaurants.get(holder.getAdapterPosition());
+                Intent intent = new Intent(context, ZamowMenuActivity.class);
+                context.startActivity(intent);
             }
         });
     }

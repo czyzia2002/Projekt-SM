@@ -22,6 +22,12 @@
             android:name=".RestaurantActivity"
             android:exported="false" />
         <activity
+            android:name=".OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ZamowMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".ZamowActivity"
             android:exported="false" />
         <activity

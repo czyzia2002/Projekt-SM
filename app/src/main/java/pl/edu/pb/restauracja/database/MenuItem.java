@@ -1,7 +1,10 @@
 package pl.edu.pb.restauracja.database;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
@@ -17,7 +20,7 @@ import java.util.List;
 import kotlinx.coroutines.channels.ActorKt;
 
 @Entity
-public class MenuItem {
+public class MenuItem implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String itemName;
@@ -88,5 +91,31 @@ public class MenuItem {
     public void setIngredients2(Ingredient[] ingredients){
         Gson gson = new Gson();
         this.ingredients = gson.toJson(ingredients);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(itemName);
+    }
+
+    public static final Parcelable.Creator<MenuItem> CREATOR = new Parcelable.Creator<MenuItem>() {
+        @Override
+        public MenuItem createFromParcel(Parcel in) {
+            return new MenuItem(in);
+        }
+
+        @Override
+        public MenuItem[] newArray(int size) {
+            return new MenuItem[size];
+        }
+    };
+
+    private MenuItem(Parcel in) {
+        itemName = in.readString();
     }
 }
