@@ -320,3 +320,7 @@ e
 5app/src/main/java/pl/edu/pb/restauracja/Fragment.java,6\a\6a9e24b6ee827649bd009bf254f5c79fbf4236e6
 i
 9app/src/main/java/pl/edu/pb/restauracja/SearchResult.java,8\e\8e6949ca35533d1b86b817fd9e1f591648b12e99
+m
+=app/src/main/java/pl/edu/pb/restauracja/database/MenuDao.java,e\3\e3ab0dfed9f748b63a5a42a2a1bbc8e0d268dade
+n
+>app/src/main/java/pl/edu/pb/restauracja/database/MenuItem.java,3\1\31d9e09c804728c0e6e97d34bf999785dd7db01c

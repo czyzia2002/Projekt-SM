@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -64,6 +66,8 @@ public class MenuDetails extends AppCompatActivity implements GoogleSearchTask.O
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button searchGoogleButton = findViewById(R.id.buttonSearchGoogle);
+        Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        searchGoogleButton.startAnimation(fadeIn);
         searchGoogleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
