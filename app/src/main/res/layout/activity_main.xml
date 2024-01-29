@@ -8,17 +8,9 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <include layout="@layout/header_layout"
+        android:id="@+id/headerLayout"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:background="@color/headline"
-        android:textColor="@color/app_name"
-        android:padding="16dp"
-        android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,42 +18,24 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/Restauracje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@color/button"
-                android:text="@string/restauracje"
-                android:textColor="@color/text" />
+        <Button
+            android:id="@+id/Restauracje"
+            style="@style/AppButtonStyle"
+            android:text="@string/restauracje" />
 
 
-            <Button
-                android:id="@+id/Zamow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@color/button"
-                android:text="@string/zamow"
-                android:textColor="@color/text" />
+        <Button
+            android:id="@+id/Zamow"
+            style="@style/AppButtonStyle"
+            android:text="@string/zamow" />
 
-        </LinearLayout>
 
         <Button
             android:id="@+id/Menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
+            style="@style/AppButtonStyle"
             android:background="@color/button"
-            android:text="@string/menu"
-            android:textColor="@color/text" />
+            android:text="@string/menu" />
 
     </LinearLayout>
 
