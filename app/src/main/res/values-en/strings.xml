@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"></string>
+    <string name="restauracje">Restaurant</string>
+    <string name="menu">Menu</string>
+    <string name="zamow">Order</string>
+    <string name="nearest_restaurant">The Nearest Restaurant</string>
+    <string name="distance">Distance:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="choose_restaurant">Choose Restaurant</string>
+    <string name="pickup">Pick-up</string>
+    <string name="delivery">Dilievery</string>
+    <string name="add">Add</string>
+    <string name="confirm">Confirm</string>
+    <string name="order">Your Order</string>
+    <string name="search">Search</string>
+
+    <string name="settings">Settings</string>
+    <string name="change_to_english">English</string>
+    <string name="change_to_polish">Polski</string>
+    <string name="toggle_dark_mode">Dark Mode</string>
+</resources>

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Trójkąt w Kole</string>
-    <string name="zamow">Zamów</string>
+    <string name="app_name"></string>
     <string name="restauracje">Restauracje</string>
     <string name="menu">Menu</string>
+    <string name="zamow">Zamów</string>
     <string name="nearest_restaurant">Najbliższa restauracja</string>
     <string name="distance">Odległość:</string>
     <string name="ingredients">Składniki:</string>
@@ -12,5 +12,11 @@
     <string name="add">Dodaj</string>
     <string name="confirm">Złóż zamówienie</string>
     <string name="order">Twoje zamówienie</string>
+    <string name="search">Wyszukaj w Google</string>
+
+    <string name="settings">Ustawienia</string>
+    <string name="change_to_english">Angielski</string>
+    <string name="change_to_polish">Polski</string>
+    <string name="toggle_dark_mode">Tryb ciemny</string>
 
 </resources>
