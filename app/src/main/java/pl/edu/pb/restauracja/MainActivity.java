@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setVisibility(View.VISIBLE);
 
-        DatabaseInstance.initialize(getApplicationContext());
+        DatabaseInstance.Initialize(getApplicationContext());
 
         int orientation = getResources().getConfiguration().orientation;
         ImageView logoImageView = findViewById(R.id.logoImageView);
