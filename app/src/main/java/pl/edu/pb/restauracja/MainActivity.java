@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setVisibility(View.VISIBLE);
 
-        db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "restaurant-database").build();
+        DatabaseInstance.initialize(getApplicationContext());
 
         int orientation = getResources().getConfiguration().orientation;
         ImageView logoImageView = findViewById(R.id.logoImageView);
@@ -80,13 +79,13 @@ public class MainActivity extends AppCompatActivity {
         // Pobierz aktualny język
         String currentLanguage = Locale.getDefault().getLanguage();
 
-        // Ukryj opcje zmiany języka, zależnie od bieżącego języka
+        // Ukryj odpowiednie opcje w menu w zależności od bieżącego języka
         MenuItem changeToEnglishItem = menu.findItem(R.id.action_change_language_to_english);
         MenuItem changeToPolishItem = menu.findItem(R.id.action_change_language_to_polish);
 
         if (currentLanguage.equals("en")) {
             changeToEnglishItem.setVisible(false);
-        } else {
+        } else if (currentLanguage.equals("pl")) {
             changeToPolishItem.setVisible(false);
         }
 
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
 
 
     private void setLocale(String languageCode) {

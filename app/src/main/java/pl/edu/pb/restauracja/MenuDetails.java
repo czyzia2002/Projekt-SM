@@ -37,7 +37,10 @@ public class MenuDetails extends AppCompatActivity implements GoogleSearchTask.O
         ListView listViewIngredients = findViewById(R.id.listViewIngredients);
 
         dishNameTextView.setText(itemName);
-        dishPriceTextView.setText("Price: " + String.valueOf(price));
+
+        String priceText = getString(R.string.price) + String.valueOf(price);
+        dishPriceTextView.setText(priceText);
+
 
         List<MenuItem> menuItems = MenuRepository.getInstance().getMenuItems();
         MenuItem selectedItem = null;

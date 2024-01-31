@@ -9,7 +9,7 @@
     <color name="app_name">#FFFFFF</color>
     <color name="button">#9C27B0</color>
     <color name="headline">#D351EA</color>
-    <color name="nearestRestaurantColor">#DC074F</color>
+    <color name="nearestRestaurantColor">#BA476E</color>
 
     <color name="night_background">#000000</color>
 </resources>

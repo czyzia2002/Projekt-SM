@@ -11,7 +11,7 @@ public interface RestaurantDao {
     @Insert
     void insertRestaurant(Restaurant restaurant);
 
-    @Query("SELECT * FROM Restaurant")
+    @Query("SELECT * FROM restaurant")
     List<Restaurant> getAllRestaurants();
     @Query("SELECT * FROM restaurant WHERE id = :id")
     Restaurant getRestaurantById(int id);

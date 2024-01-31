@@ -116,8 +116,14 @@ public class RestaurantActivity extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(RestaurantActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
                         Location currentLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        distance1 = (float) currentLocation.distanceTo(location1);
-                        distance2 = (float) currentLocation.distanceTo(location2);
+                        if (currentLocation != null) {
+                            distance1 = (float) currentLocation.distanceTo(location1);
+                            distance2 = (float) currentLocation.distanceTo(location2);
+                        } else {
+                            // Obsłuż przypadek, gdy currentLocation jest null
+                            Log.e("Location Error", "Aktualna lokalizacja jest null");
+                            return 0;
+                        }
                     } else {
                         // Brak uprawnień - obsłuż tę sytuację (np. poproś ponownie o uprawnienia)
                         // Alternatywnie, możesz ustawić tę wartość na coś, co wskazuje na błąd.

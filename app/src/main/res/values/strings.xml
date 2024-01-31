@@ -18,6 +18,7 @@
     <string name="phone">Numer telefonu</string>
     <string name="doneorder">Złożono zamówienie</string>
     <string name="search">Wyszukaj w Google</string>
+    <string name="price">Cena: </string>
 
     <string name="settings">Ustawienia</string>
     <string name="change_to_english">Angielski</string>
