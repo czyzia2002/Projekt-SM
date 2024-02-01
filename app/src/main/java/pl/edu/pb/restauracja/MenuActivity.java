@@ -13,8 +13,11 @@ import java.util.Comparator;
 import java.util.List;
 
 import pl.edu.pb.restauracja.database.AppDatabase;
+import pl.edu.pb.restauracja.database.MenuDao;
 import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.MenuRepository;
+import pl.edu.pb.restauracja.database.Restaurant;
+import pl.edu.pb.restauracja.database.RestaurantDao;
 
 public class MenuActivity extends AppCompatActivity{
     private AppDatabase appDatabase;
@@ -31,7 +34,15 @@ public class MenuActivity extends AppCompatActivity{
 
     private void displayMenu() {
 
-        List<MenuItem> menuItems = MenuRepository.getInstance().getMenuItems();
+        AppDatabase appDatabase = DatabaseInstance.getInstance(this);
+
+        // Uzyskaj instancję interfejsu dostępu do danych (DAO)
+        MenuDao menuDao = appDatabase.menuDao();
+
+        DatabaseInstance.insertInitialData2(menuDao);
+
+        // Pobierz listę restauracji z bazy danych
+        List<MenuItem> menuItems = menuDao.getAllMenuItems();
 
         Collections.sort(menuItems, new Comparator<MenuItem>() {
             @Override

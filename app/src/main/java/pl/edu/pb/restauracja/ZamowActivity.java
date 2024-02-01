@@ -24,6 +24,8 @@ public class ZamowActivity extends AppCompatActivity {
         // Uzyskaj instancję interfejsu dostępu do danych (DAO)
         RestaurantDao restaurantDao = appDatabase.restaurantDao();
 
+        DatabaseInstance.insertInitialData(restaurantDao);
+
         // Pobierz listę restauracji z bazy danych
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
 

@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.edu.pb.restauracja.database.AppDatabase;
+import pl.edu.pb.restauracja.database.MenuDao;
 import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.MenuRepository;
 
@@ -42,7 +44,16 @@ public class MenuDetails extends AppCompatActivity implements GoogleSearchTask.O
         dishPriceTextView.setText(priceText);
 
 
-        List<MenuItem> menuItems = MenuRepository.getInstance().getMenuItems();
+        AppDatabase appDatabase = DatabaseInstance.getInstance(this);
+
+        // Uzyskaj instancję interfejsu dostępu do danych (DAO)
+        MenuDao menuDao = appDatabase.menuDao();
+
+        DatabaseInstance.insertInitialData2(menuDao);
+
+        // Pobierz listę restauracji z bazy danych
+        List<MenuItem> menuItems = menuDao.getAllMenuItems();
+
         MenuItem selectedItem = null;
         for (MenuItem menuItem : menuItems) {
             if (menuItem.getItemName().equals(itemName)) {

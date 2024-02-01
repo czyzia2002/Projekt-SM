@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.edu.pb.restauracja.database.AppDatabase;
+import pl.edu.pb.restauracja.database.MenuDao;
 import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.MenuRepository;
 
@@ -30,7 +32,16 @@ public class ZamowMenuActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<MenuItem> menuItems = MenuRepository.getInstance().getMenuItems();
+        AppDatabase appDatabase = DatabaseInstance.getInstance(this);
+
+        // Uzyskaj instancję interfejsu dostępu do danych (DAO)
+        MenuDao menuDao = appDatabase.menuDao();
+
+        DatabaseInstance.insertInitialData2(menuDao);
+
+        // Pobierz listę restauracji z bazy danych
+        List<MenuItem> menuItems = menuDao.getAllMenuItems();
+
         ZamowMenuAdapter adapter = new ZamowMenuAdapter(menuItems);
 
         adapter.setOnAddItemClickListener(new ZamowMenuAdapter.OnAddItemClickListener() {

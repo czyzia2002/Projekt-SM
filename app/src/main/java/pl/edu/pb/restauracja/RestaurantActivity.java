@@ -26,6 +26,7 @@ import java.util.List;
 
 import pl.edu.pb.restauracja.database.AppDatabase;
 import pl.edu.pb.restauracja.database.Restaurant;
+import pl.edu.pb.restauracja.database.RestaurantDao;
 import pl.edu.pb.restauracja.database.RestaurantRepository;
 
 public class RestaurantActivity extends AppCompatActivity {
@@ -56,8 +57,15 @@ public class RestaurantActivity extends AppCompatActivity {
     }
 
     private void displayRestaurants() {
-        // Pobierz restauracje z RestaurantRepository
-        List<Restaurant> restaurants = RestaurantRepository.getInstance().getRestaurants();
+        AppDatabase appDatabase = DatabaseInstance.getInstance(this);
+
+        // Uzyskaj instancję interfejsu dostępu do danych (DAO)
+        RestaurantDao restaurantDao = appDatabase.restaurantDao();
+
+        //DatabaseInstance.insertInitialData(restaurantDao);
+
+        // Pobierz listę restauracji z bazy danych
+        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
 
         // Pobierz aktualną lokalizację
         double userLatitude = 0.0;

@@ -8,7 +8,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.ArrayList;
+
 import pl.edu.pb.restauracja.database.AppDatabase;
+import pl.edu.pb.restauracja.database.MenuDao;
+import pl.edu.pb.restauracja.database.MenuItem;
 import pl.edu.pb.restauracja.database.Restaurant;
 import pl.edu.pb.restauracja.database.RestaurantDao;
 
@@ -29,6 +33,8 @@ public class DatabaseInstance {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
+                        insertInitialData(appDatabase.restaurantDao());
+                        insertInitialData2(appDatabase.menuDao());
                         // Handle onCreate
                     }
 
@@ -40,12 +46,15 @@ public class DatabaseInstance {
                 }).allowMainThreadQueries() // For demonstration purposes only; use AsyncTask or background thread for database operations
                 .build();
     }
-    public static void insertInitialData(RestaurantDao restaurantDao, SupportSQLiteDatabase db) {
-        // Dodawanie początkowych restauracji do bazy danych
+    public static void insertInitialData(RestaurantDao restaurantDao) {
+        /*for(Restaurant restaurant: restaurantDao.getAllRestaurants()) {
+            restaurantDao.deleteRestaurant(restaurant.getId());
+        }
         restaurantDao.insertRestaurant(new Restaurant("Zwierzyniec", "Białystok", "Zwierzniecka", "6", 53.11966936655787, 23.150193796527187));
         restaurantDao.insertRestaurant(new Restaurant("Obok Rynku", "Bielsk Podlaski", "Mickiewicza", "49", 52.77197652449937, 23.193009153588086));
         restaurantDao.insertRestaurant(new Restaurant("Centrum", "Białystok", "Sienkiewicza", "3", 53.13281011504806, 23.160434781185547));
         restaurantDao.insertRestaurant(new Restaurant("Zielone Wzgórza", "Białystok", "Wrocławska", "45", 53.12446534452306, 23.095771011870312));
+    */
     }
 
 
